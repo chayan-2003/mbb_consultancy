@@ -1,5 +1,6 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import Navbar from "./components/navbar";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -13,7 +14,8 @@ function App() {
 
   return (
     <div>
-      <h1>{message}</h1>
+      <Navbar />
+      <AboutUs/>
     </div>
   );
 }
