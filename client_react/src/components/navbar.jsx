@@ -3,8 +3,8 @@ import React from 'react';
 const Navbar = () => {
   return (
     <>
-      <nav className="bg-gradient-to-r from-blue-500 to-purple-500 p-4 flex justify-between items-center border-b-4 border-white">
-        <div className="text-white text-xl font-bold">MBB CONSULTANCY</div>
+      <nav className="bg-gradient-to-r from-slate-400 to-black p-4 flex justify-between items-center border-b-4 border-white h-24">
+        <div className="text-white text-2xl font-bold">MBB CONSULTANCY</div>
         <div className="flex space-x-4">
           <a
             href="#"
@@ -27,7 +27,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="relative">
+      <div className="relative bottom-1  border-gray-800 border-spacing-2 shadow-2xl shadow-gray-900 m-1  ">
         <section
           className="bg-cover bg-center h-96"
           style={{
@@ -36,17 +36,19 @@ const Navbar = () => {
           }}
         ></section>
 
-        <div className="absolute inset-0 bg-black opacity-30"></div>
+        <div className="absolute inset-0 bg-white opacity-30"></div>
 
-        <div className="absolute inset-0 flex flex-col justify-center items-end text-black pr-20 text-right p-8">
-          <div className="text-4xl font-bold mb-4">
-            MBB CONSULTANCY
+        <div className="absolute inset-0 flex flex-col items-end text-black pr-20 text-right p-8 max-h-max  justify-between">
+          <div className="  text-5xl font-bold mb-16 relative right-64  bg-neutral-200  inline-block  font-san  mt-7">
+             BUILD WITH MBB CONSULTANCY
           </div>
           <div class="pr-20">
-            <p>Your custom text line 1</p>
-            <p>Your custom text line 2</p>
+            <p class=" font-serif text-3xl mb-5  bg-neutral-200 ">
+"Building Tomorrow, Excelling Today: Crafting a Legacy of Precision and Innovation "</p>
+            <p class=" font-serif text-3xl relative right-12  inline-block bg-neutral-200" >
+"Elevating Infrastructure, Inspiring Confidence: Where Expertise Meets Vision "</p>
           </div>
-          <button className="bg-blue-500 text-white py-2 px-4 mt-4 hover:bg-blue-400 transition duration-300   ">
+          <button className=" font-bold relative top-7 bg-blue-500 text-white py-2 px-4 mt-4 hover:bg-blue-400   mr-24 relative right-96  mr-52  mt-16 rounded-lg  h-12 ">
             Contact Us
           </button>
         </div>
