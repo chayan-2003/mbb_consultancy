@@ -1,25 +1,22 @@
 import React from "react";
-import Navbar from "./components/navbar";
-import AboutUs from "./components/AboutUs";
-import Location from "./components/Location";
-import TestimonialsSection from "./components/Comments";
-import Services from "./components/Services";
-import Form from "./components/Form";
- 
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/home/home.jsx";
+import Form_Page from "./pages/contacts/form.jsx";
+import AboutUs from "./components/AboutUs.jsx";
+import Client from "./pages/client_pg/client.jsx";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <AboutUs/>
-      <Services/>
-      <TestimonialsSection/>
-      <div class="bg-slate-100">
-      <Location/>
-      <Form/>
-      </div>
+    <BrowserRouter >
+    <Routes>
+    <Route path="/"  element={<Home/>}/>
+    <Route path="/contacts"  element={<Form_Page/>}/>
+    <Route path="/about"  element={<AboutUs/>}/>
+    <Route path="/client"  element={<Client/>}/>
+    </Routes>
+  </BrowserRouter>
 
-    </div>
+   
   );
 }
 
