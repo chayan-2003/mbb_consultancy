@@ -1,13 +1,13 @@
 import React from 'react'
-import Clients from '../../components/clients'
+import AboutUs from '../../components/AboutUs'
 import Navbar from '../../components/navbar'
-
-export default function Client() {
+import Footer  from '../../components/footer'
+export default function About_pg() {
   const currentYear = new Date().getFullYear();
   return (
     <div>
         <Navbar/>
-        <Clients/>
+        <AboutUs/>
         <div className="text-center mt-4">
         <p>&copy; {currentYear} MBB CONSULTANCY. All rights reserved.</p>
       </div>

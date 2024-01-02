@@ -3,7 +3,7 @@ import React from 'react'
 export default function Clients() {
   return (
     <div>
-      <div className='flex gap-4 justify-center mt-16'>
+      <div className='flex gap-12 justify-center mt-16'>  
         <div>
           <img src='client_images\bp.png' alt="client image 1" className='h-44 w-52'/>
         </div>
@@ -20,7 +20,10 @@ export default function Clients() {
           <img src='client_images\L_T.jpg' alt="client 5" className='h-40 w-52'/>
         </div>
       </div>
-      <div className='flex gap-4 justify-center mt-10'>
+      <div className='flex gap-12 justify-center mt-10'>
+        <div>
+          <img src='client_images\tata_steel.png' alt="client 6" className='h-40 w-52'/>
+        </div>
        <div>
           <img src='client_images\rail_vikas.png' alt="client 20" className='h-40 w-52'/>
         </div>
@@ -37,7 +40,7 @@ export default function Clients() {
           <img src='client_images\indian_oil.png' alt="client 10" className='h-44 w-52'/>
         </div>
       </div>
-      <div className='flex gap-4 justify-center mt-10 mb-10'>
+      <div className='flex gap-12 justify-center mt-10 mb-10'>
         <div>
           <img src='client_images\adhunik.jpg' alt="client 11" className='h-40 w-52'/>
         </div>
@@ -54,7 +57,7 @@ export default function Clients() {
           <img src='client_images\usha_martin.png' alt="client 15" className='h-40 w-52'/>
         </div>
       </div>
-      <div className='flex gap-4 justify-center mt-10 mb-10'>
+      <div className='flex gap-12 justify-center mt-10 mb-10'>
         <div>
           <img src='client_images\OCL.jpg' alt="client 16" className='h-40 w-52'/>
         </div>
@@ -67,7 +70,9 @@ export default function Clients() {
         <div>
           <img src='client_images\godavari.jpg' alt="client 19" className='h-40 w-64'/>
         </div>
-        
+        <div>
+          <img src='client_images\rail_vikas.png' alt="client 20" className='h-40 w-52'/>
+        </div>
       </div>
     </div>
   )

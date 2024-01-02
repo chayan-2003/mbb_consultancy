@@ -1,84 +1,206 @@
-// Form.js
-
-import React from 'react';
+import React, { useState } from 'react';
 
 const Form = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    contact_number: '',
+    work_Title: '',
+    desc: '',
+  });
+
+  const [validationMessages, setValidationMessages] = useState({
+    name: '',
+    email: '',
+    contact_number: '',
+    work_Title: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    // Clear validation message when the user starts typing in the field
+    setValidationMessages({
+      ...validationMessages,
+      [name]: '',
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if mandatory fields are empty
+    const mandatoryFields = ['name', 'email', 'contact_number', 'work_Title'];
+    let isValid = true;
+    const updatedValidationMessages = {};
+
+    mandatoryFields.forEach((field) => {
+      if (!formData[field]) {
+        updatedValidationMessages[field] = 'This field is mandatory';
+        isValid = false;
+      }
+    });
+
+    // If any mandatory field is empty, update state to display validation messages
+    if (!isValid) {
+      setValidationMessages(updatedValidationMessages);
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:8800/contacts/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log('Form submitted successfully');
+        // Optionally, you can perform actions after a successful submission
+      } else {
+        console.error('Form submission failed');
+        // Optionally, handle errors or show an error message to the user
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle network errors or other issues
+    }
+
+    // Clear the form after submission (optional)
+    setFormData({
+      name: '',
+      email: '',
+      contact_number: '',
+      work_Title: '',
+      desc: '',
+    });
+  };
+
   return (
-    <div className=" items-center h-screen bg-gray-300  ">
-      <div className=" flex ">
-        <div className="w-1/2 bg-gray-200 p-8   mr-4 mt-12 ml-3 rounded-lg shadow-xl shadow-black  ">
-          <h2 className="text-2xl font-semibold mb-4 text-center  ">Contact Form</h2>
-          
-          {/* Left side of the form */}
-          <div className="mb-4 ">
-            <label htmlFor="individual" className="block text-sm font-medium text-gray-600 mb-2">Individual or Personal Work</label>
-            <input
-              type="text"
-              id="individual"
-              name="individual"
-              placeholder="Enter individual or personal work"
-              className="form-input mt-1 block w-full border p-2 rounded focus:outline-none focus:border-blue-500"
-            />
-          </div>
+    <div className="items-center h-screen">
+      <div className="flex">
+        <div className="w-1/2 bg-gray-300 p-8 mr-4  ml-3 rounded-lg shadow-xl shadow-black">
+          <h2 className="text-2xl font-semibold mb-4 text-center">Contact Form</h2>
 
-          <div className="mb-4">
-            <label htmlFor="companyName" className="block text-sm font-medium text-gray-600 mb-2">Company Name</label>
-            <input
-              type="text"
-              id="companyName"
-              name="companyName"
-              placeholder="Enter company name"
-              className="form-input mt-1 block w-full border p-2 rounded focus:outline-none focus:border-blue-500"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="companyAddress" className="block text-sm font-medium text-gray-600 mb-2">Company Address</label>
-            <textarea
-              id="companyAddress"
-              name="companyAddress"
-              placeholder="Enter company address"
-              className="form-textarea mt-1 block w-full border p-2 rounded focus:outline-none focus:border-blue-500"
-            ></textarea>
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="workType" className="block text-sm font-medium text-gray-600 mb-2">Type of Work Needed</label>
-            <input
-              type="text"
-              id="workType"
-              name="workType"
-              placeholder="Enter type of work needed"
-              className="form-input mt-1 block w-full border p-2 rounded focus:outline-none focus:border-blue-500"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="extraDetails" className="block text-sm font-medium text-gray-600 mb-2">Add Extra Details</label>
-            <textarea
-              id="extraDetails"
-              name="extraDetails"
-              placeholder="Add extra details"
-              className="form-textarea mt-1 block w-full border p-2 rounded focus:outline-none focus:border-blue-500"
-            ></textarea>
-          </div>
-          <div class="flex justify-center">
-          <button
-              type="submit"
-              className=" bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:shadow-outline-green"
-            >
-              Submit
-            </button>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-600 mb-2">
+                Name<span class="text-red-800 text-lg ">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Enter your name"
+                className={`form-input mt-1 block w-full border p-2 rounded focus:outline-none focus:border-blue-500 ${
+                  validationMessages.name && 'border-red-500'
+                }`}
+              />
+              {validationMessages.name && (
+                <p className="text-red-500 text-sm mt-1">{validationMessages.name}</p>
+              )}
             </div>
+
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-600 mb-2">
+                Email<span class="text-red-800 text-lg ">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Enter your email"
+                className={`form-input mt-1 block w-full border p-2 rounded focus:outline-none focus:border-blue-500 ${
+                  validationMessages.email && 'border-red-500'
+                }`}
+              />
+              {validationMessages.email && (
+                <p className="text-red-500 text-sm mt-1">{validationMessages.email}</p>
+              )}
+            </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="contact_number"
+                className="block text-sm font-medium text-gray-600 mb-2"
+              >
+                Contact Number<span class="text-red-800 text-lg ">*</span>
+              </label>
+              <input
+                type="text"
+                id="contact_number"
+                name="contact_number"
+                value={formData.contact_number}
+                onChange={handleInputChange}
+                placeholder="Enter contact number"
+                className={`form-input mt-1 block w-full border p-2 rounded focus:outline-none focus:border-blue-500 ${
+                  validationMessages.contact_number && 'border-red-500'
+                }`}
+              />
+              {validationMessages.contact_number && (
+                <p className="text-red-500 text-sm mt-1">{validationMessages.contact_number}</p>
+              )}
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="work_Title" className="block text-sm font-medium text-gray-600 mb-2">
+                Work Subject<span class="text-red-800 text-lg ">*</span>
+              </label>
+              <input
+                type="text"
+                id="work_Title"
+                name="work_Title"
+                value={formData.work_Title}
+                onChange={handleInputChange}
+                placeholder="Enter work title"
+                className={`form-input mt-1 block w-full border p-2 rounded focus:outline-none focus:border-blue-500 ${
+                  validationMessages.work_Title && 'border-red-500'
+                }`}
+              />
+              {validationMessages.work_Title && (
+                <p className="text-red-500 text-sm mt-1">{validationMessages.work_Title}</p>
+              )}
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="desc" className="block text-sm font-medium text-gray-600 mb-2">
+                Work Description
+              </label>
+              <textarea
+                id="desc"
+                name="desc"
+                value={formData.desc}
+                onChange={handleInputChange}
+                placeholder="Enter work description"
+                className="form-textarea mt-1 block w-full border p-2 rounded focus:outline-none focus:border-blue-500"
+              ></textarea>
+            </div>
+
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:shadow-outline-green"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
-        
-        {/* Right side of the form */}
+
         <div className="w-1/2">
-          <div className="bg-gray-300 rounded p-2 text-center  ">
-            <p className="mt-52  text-center text-4xl text-gray-700  font-serif">
+          <div className=" font-medium  rounded p-2 text-center">
+            <p className="mt-52 text-center text-4xl text-gray-700 font-serif">
               Complete the form now to get in touch with our team. We are here to answer your questions and provide expert advice on your construction project.
             </p>
-           
           </div>
         </div>
       </div>
