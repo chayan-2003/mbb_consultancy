@@ -31,33 +31,20 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <div
-      className="relative h-64 text-center p-14 bg-gradient-to-r from-blue-100 to-blue-200 bg-center bg-no-repeat shadow-sm shadow-black mb-2"
-      // style={{
-      //   backgroundImage: 'url("")',
-      //   backgroundSize: '100% 100%', // Fit the entire image without shrinking
-      //   backgroundColor: 'rgba(255, 255, 255, 0.9)',
-      //   backdropFilter: 'blur(5px)', // Set opacity by adjusting the alpha value
-      // }}
-    >
-      <div className="absolute top-1/4 left-4 transform focus:outline-none text-5xl pl-16">
+    <div className="relative h-64 text-center p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 bg-gradient-to-r from-blue-100 to-blue-200 bg-center bg-no-repeat shadow-sm shadow-black mb-2">
+      <div className="absolute top-1/4 left-4 transform focus:outline-none text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl pl-4 sm:pl-8 md:pl-16 lg:pl-32 pr-4 sm:pr-8 md:pr-16 lg:pr-32">
         <button onClick={handlePrevClick}>&lt;</button>
       </div>
-      <div className="absolute top-1/4 right-4 transform focus:outline-none text-5xl pr-16">
+      <div className="absolute top-1/4 right-4 transform focus:outline-none text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl pr-4 sm:pr-8 md:pr-16 lg:pr-32">
         <button onClick={handleNextClick}>&gt;</button>
       </div>
       <div className="text-center">
-        {/* <h2 className="text-3xl font-bold mb-4">Client Testimonials</h2> */}
-        <p className="text-black text-2xl text-left pl-48 pr-44 font-bold">
+        <p className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-left pl-4 sm:pl-8 md:pl-16 lg:pl-32 pr-4 sm:pr-8 md:pr-16 lg:pr-32 font-bold">
           {testimonials[currentTestimonial].content}
         </p>
-        <p className="text-gray-800 text-lg text-left pl-48 mt-2">
+        <p className="text-gray-800 text-lg md:text-xl lg:text-2xl xl:text-3xl text-left pl-4 sm:pl-8 md:pl-16 lg:pl-32 mt-2">
           {testimonials[currentTestimonial].author}
         </p>
-        {/* Note: The sign property is not present in the testimonials data, so it's commented out to prevent errors */}
-        {/* <p className="text-gray-800 text-3xl text-left pl-48 mt-2 font-extrabold">
-          {testimonials[currentTestimonial].sign}
-        </p> */}
       </div>
     </div>
   );

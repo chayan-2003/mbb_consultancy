@@ -5,7 +5,7 @@ export default function Services() {
     <div>
       <h2 className="text-5xl flex justify-center font-bold mb-6 my-14">Our Services</h2>
       <div className="container mx-auto my-8">
-        <div class="flex justify-center mx-14 gap-6">
+        <div className="flex flex-col md:flex-row justify-center mx-4 gap-6">
           {/* Service 1 */}
           <div className="col-span-2 md:col-span-1 relative">
             <div className="group">
@@ -16,7 +16,6 @@ export default function Services() {
               />
               <div className="absolute bottom-4 left-0 right-0 text-white text-center p-4 bg-black opacity-80 rounded-xl">
                 <p className="text-xl font-bold">Survey</p>
-                {/* <button className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2">Know More</button> */}
               </div>
             </div>
           </div>
@@ -31,7 +30,6 @@ export default function Services() {
               />
               <div className="absolute bottom-4 left-0 right-0 text-white text-center p-4 bg-black opacity-80 rounded-xl">
                 <p className="text-xl font-bold">Soil Testing</p>
-                {/* <button className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2">Know More</button> */}
               </div>
             </div>
           </div>
@@ -46,7 +44,6 @@ export default function Services() {
               />
               <div className="absolute bottom-4 left-0 right-0 text-white text-center p-4 bg-black opacity-80 rounded-xl">
                 <p className="text-xl font-bold">Planning and Design</p>
-                {/* <button className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2">Know More</button> */}
               </div>
             </div>
           </div>
@@ -61,13 +58,12 @@ export default function Services() {
               />
               <div className="absolute bottom-4 left-0 right-0 text-white text-center p-4 bg-black opacity-80 rounded-xl">
                 <p className="text-xl font-bold">Railways Sidings</p>
-                {/* <button className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2">Know More</button> */}
               </div>
             </div>
           </div>
         </div>
 
-        <div class="flex justify-center mt-4 mx-9 gap-6">
+        <div className="flex flex-col md:flex-row justify-center mt-4 mx-4 gap-6">
           {/* Service 5 */}
           <div className="col-span-2 md:col-span-1 relative">
             <div className="group">
@@ -78,7 +74,6 @@ export default function Services() {
               />
               <div className="absolute bottom-4 left-0 right-0 text-white text-center p-4 bg-black opacity-80 rounded-xl">
                 <p className="text-xl font-bold">Design of Rail and Road Bridges</p>
-                {/* <button className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2">Know More</button> */}
               </div>
             </div>
           </div>
@@ -93,7 +88,6 @@ export default function Services() {
               />
               <div className="absolute bottom-4 left-0 right-0 text-white text-center p-4 bg-black opacity-80 rounded-xl">
                 <p className="text-xl font-bold">Supervision of Construction Sites</p>
-                {/* <button className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2">Know More</button> */}
               </div>
             </div>
           </div>
