@@ -5,9 +5,9 @@ export default function Services() {
     <div>
       <h2 className="text-5xl flex justify-center font-bold mb-6 my-14">Our Services</h2>
       <div className="container mx-auto my-8">
-        <div className="flex flex-col md:flex-row justify-center mx-4 gap-6">
+        <div className="flex justify-center gap-6">
           {/* Service 1 */}
-          <div className="col-span-2 md:col-span-1 relative">
+          <div className="relative">
             <div className="group">
               <img
                 src="https://shradhalandsurveyors.com/blog/wp-content/uploads/2020/02/Engineering-Surveying.jpg"
@@ -21,7 +21,7 @@ export default function Services() {
           </div>
 
           {/* Service 2 */}
-          <div className="col-span-2 md:col-span-1 relative">
+          <div className="relative">
             <div className="group">
               <img
                 src="https://wepik.com/api/image/ai/9ae91031-36dc-4c7f-b212-a8e745a51548?thumb=1"
@@ -35,7 +35,7 @@ export default function Services() {
           </div>
 
           {/* Service 3 */}
-          <div className="col-span-2 md:col-span-1 relative">
+          <div className="relative">
             <div className="group">
               <img
                 src="https://img.freepik.com/premium-photo/hands-architects-designers-pointing-blueprint-table-when-discussing-future-interior-design-project_274689-20802.jpg?size=626&ext=jpg"
@@ -49,7 +49,7 @@ export default function Services() {
           </div>
 
           {/* Service 4 */}
-          <div className="col-span-2 md:col-span-1 relative">
+          <div className="relative">
             <div className="group">
               <img
                 src="https://t4.ftcdn.net/jpg/02/34/47/79/360_F_234477993_zJvIuCuOQM8EkasYUCxoipmWjJnP8Kky.jpg"
@@ -63,9 +63,9 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-center mt-4 mx-4 gap-6">
+        <div className="flex justify-center mt-4 gap-6">
           {/* Service 5 */}
-          <div className="col-span-2 md:col-span-1 relative">
+          <div className="relative">
             <div className="group">
               <img
                 src="https://images.unsplash.com/photo-1621866546767-0d689e8f7784?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJhaWx3YXklMjBicmlkZ2V8ZW58MHx8MHx8fDA%3D"
@@ -79,7 +79,7 @@ export default function Services() {
           </div>
 
           {/* Service 6 */}
-          <div className="col-span-2 md:col-span-1 relative">
+          <div className="relative">
             <div className="group">
               <img
                 src="https://images.unsplash.com/photo-1591588582259-e675bd2e6088?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvbnN0cnVjdGlvbnxlbnwwfHwwfHx8MA%3D%3D"
