@@ -10,13 +10,12 @@ import Header from "../../components/Header.jsx";
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex flex-col justify-center md:w-full">
       <Navbar />
       <Header />
       <Services />
-
       <div className="bg-slate-100">
-        <div className="container mx-auto">
+        <div className="container mx-auto p-4 sm:w-full md:w-full lg:w-full">
           <div className="mb-3">
             <Location />
           </div>

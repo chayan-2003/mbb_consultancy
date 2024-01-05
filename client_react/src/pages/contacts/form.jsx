@@ -8,9 +8,9 @@ export default function Form_Page () {
   <div> 
     <Navbar />
     <Form />
-    <div className="text-center mt-4">
+      <div className="text-center mt-40 text-sm sm:text-base lg:text-lg">
         <p>&copy; {currentYear} MBB CONSULTANCY. All rights reserved.</p>
       </div>
-    </div>
+  </div>
   )
 }

@@ -82,8 +82,8 @@ const Form = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center h-screen">
-      <div className="md:w-1/2 bg-gray-300 p-8 mr-4 ml-3 rounded-lg shadow-xl shadow-black">
+    <div className="flex flex-col md:flex-row lg:mt-14 items-center h-screen">
+      <div className="w-full order-last md:w-1/2 bg-gray-300 p-8 sm:mr-4 sm:ml-3 rounded-lg shadow-xl shadow-black">
         <h2 className="text-2xl font-semibold mb-4 text-center">Contact Form</h2>
   
         <form onSubmit={handleSubmit}>
@@ -192,16 +192,14 @@ const Form = () => {
         </form>
       </div>
   
-      <div className="md:w-1/2">
+      <div className="order-first md:w-1/2 mb-4 sm:mb-0">
         <div className="font-medium rounded p-2 text-center">
-          <p className="mt-4 md:mt-0 text-center text-lg md:text-4xl text-gray-700 font-serif">
+          <p className="mt-6 md:mt-0 text-center text-lg md:text-4xl text-gray-700 font-serif">
             Complete the form now to get in touch with our team. We are here to answer your questions and provide expert advice on your construction project.
           </p>
         </div>
       </div>
     </div>
   );
-  
 };
-
 export default Form;

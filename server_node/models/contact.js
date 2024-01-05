@@ -14,7 +14,7 @@ const ContactSchema= new mongoose.Schema({
     required:true},
 
   desc:{type:String,
-      required:true},
+      required:false},
   
 
 
