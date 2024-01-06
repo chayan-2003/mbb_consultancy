@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getUrl } from '../constant';
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +54,7 @@ const Form = () => {
     }
 
     try {
-      const response = await fetch('https://mbb-consultancy.onrender.com/contacts/submit', {
+      const response = await fetch(getUrl+'/contacts/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
