@@ -15,10 +15,10 @@ app.use(cookieParser());
 
 // CORS configuration
 const corsOptions = {
-  origin: 'http://localhost:3000', // Update this with your Netlify frontend URL
+  origin: 'https://tubular-palmier-54392e.netlify.app', // Update with your Netlify frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // Enable cookies and other credentials to be sent cross-origin
-  optionsSuccessStatus: 204, // Respond with 204 No Content for preflight requests
+  credentials: true,
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
