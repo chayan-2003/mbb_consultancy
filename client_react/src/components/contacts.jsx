@@ -53,7 +53,7 @@ const Form = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8800/contacts/submit', {
+      const response = await fetch('https://mbb-consultancy.onrender.com/contacts/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
