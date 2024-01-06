@@ -16,6 +16,8 @@ const Form = () => {
     work_Title: '',
   });
 
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -51,7 +53,7 @@ const Form = () => {
     }
 
     try {
-      const response = await fetch('https://mbb-consultancy.onrender.com/contacts/submit', {
+      const response = await fetch('http://localhost:8800/contacts/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,6 +63,7 @@ const Form = () => {
 
       if (response.ok) {
         console.log('Form submitted successfully');
+        setIsFormSubmitted(true); // Set the form submission status to true
         // Optionally, you can perform actions after a successful submission
       } else {
         console.error('Form submission failed');
@@ -70,8 +73,10 @@ const Form = () => {
       console.error('Error submitting form:', error);
       // Handle network errors or other issues
     }
+  };
 
-    // Clear the form after submission (optional)
+  const handleOkClick = () => {
+    // Clear the form and reset state when the "OK" button is clicked
     setFormData({
       name: '',
       email: '',
@@ -79,14 +84,33 @@ const Form = () => {
       work_Title: '',
       desc: '',
     });
+    setValidationMessages({
+      name: '',
+      email: '',
+      contact_number: '',
+      work_Title: '',
+    });
+    setIsFormSubmitted(false);
   };
 
   return (
-    <div className="flex flex-col md:flex-row lg:mt-14 items-center h-screen">
-      <div className="w-full order-last md:w-1/2 bg-gray-300 p-8 sm:mr-4 sm:ml-3 rounded-lg shadow-xl shadow-black">
-        <h2 className="text-2xl font-semibold mb-4 text-center">Contact Form</h2>
-  
-        <form onSubmit={handleSubmit}>
+    <div className="flex flex-col min-h-screen justify-between bg-slate-200 items-center">
+      {isFormSubmitted ? (
+        // Display success message and "OK" button when the form is submitted successfully
+        <div className="font-medium h-44 w-96 mt-8 ml-4 pt-12 text-center bg-green-200 text-green-900 rounded-lg border-green-500 border-2 ">
+          <p className="text-2xl ">Form submitted successfully!</p>
+          <button
+            onClick={handleOkClick}
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:shadow-outline-green mt-2  border-green-700 border-2"
+          >
+            OK
+          </button>
+        </div>
+      ) : (
+        // Display the form when it's not submitted
+        <div className="w-full max-w-screen-md p-8">
+          <h2 className="text-4xl font-bold mb-4 text-center">Contact Form</h2>
+          <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-medium text-gray-600 mb-2">
               Name<span className="text-red-800 text-lg">*</span>
@@ -189,17 +213,16 @@ const Form = () => {
               Submit
             </button>
           </div>
-        </form>
-      </div>
-  
-      <div className="order-first md:w-1/2 mb-4 sm:mb-0">
-        <div className="font-medium rounded p-2 text-center">
-          <p className="mt-6 md:mt-0 text-center text-lg md:text-4xl text-gray-700 font-serif">
-            Complete the form now to get in touch with our team. We are here to answer your questions and provide expert advice on your construction project.
-          </p>
+          </form>
         </div>
-      </div>
+      )}
+      
+      {/* Footer */}
+      {/* <footer className="bg-gray-300 p-4 text-center w-full">
+        Your footer content goes here
+      </footer> */}
     </div>
   );
 };
+
 export default Form;
