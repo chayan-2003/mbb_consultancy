@@ -54,8 +54,9 @@ const Form = () => {
       setValidationMessages(updatedValidationMessages);
       return;
     }
-    
+    console.log(process.env.SERVER_PROD_URL,"envserver");
     const postContactsUrl = getUrl() + "/contacts/submit";
+    console.log(postContactsUrl,"contact_url");
 
     try {
       const response = await fetch(postContactsUrl, {
