@@ -15,8 +15,8 @@ app.use(cookieParser());
 
 // CORS configuration
 const corsOptions = {
-  origin: 'https://tubular-palmier-54392e.netlify.app', // Update with your Netlify frontend URL
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  origin: process.env.CLIENT_PROD_URL || "http://localhost:3000",
+  methods: 'GET, POST',
   credentials: true,
   optionsSuccessStatus: 204,
 };
