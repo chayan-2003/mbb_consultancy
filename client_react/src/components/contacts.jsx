@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getUrl } from '../constant';
 
 const Form = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -52,9 +54,11 @@ const Form = () => {
       setValidationMessages(updatedValidationMessages);
       return;
     }
+    
+    const postContactsUrl = getUrl() + "/contacts/submit";
 
     try {
-      const response = await fetch(getUrl+'/contacts/submit', {
+      const response = await fetch(postContactsUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,20 +82,7 @@ const Form = () => {
 
   const handleOkClick = () => {
     // Clear the form and reset state when the "OK" button is clicked
-    setFormData({
-      name: '',
-      email: '',
-      contact_number: '',
-      work_Title: '',
-      desc: '',
-    });
-    setValidationMessages({
-      name: '',
-      email: '',
-      contact_number: '',
-      work_Title: '',
-    });
-    setIsFormSubmitted(false);
+    navigate("/")
   };
 
   return (

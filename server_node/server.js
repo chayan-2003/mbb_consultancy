@@ -15,8 +15,8 @@ app.use(cookieParser());
 
 // CORS configuration
 const corsOptions = {
-  origin: process.env.REACT_APP_URL || "http://localhost:3000", // Update with your Netlify frontend URL
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  origin: process.env.CLIENT_PROD_URL || "http://localhost:3000",
+  methods: 'GET, POST',
   credentials: true,
   optionsSuccessStatus: 204,
 };
