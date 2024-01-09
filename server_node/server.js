@@ -1,13 +1,13 @@
 // server.js
-import express from 'express';
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import express from 'express';
 import mongoose from 'mongoose';
-import cookieParser from 'cookie-parser';
-import contactRoutes from './routes/contactRoutes.js';
-import homeRoutes from './routes/homeRoutes.js';
 import aboutUsRoutes from './routes/aboutUsRoutes.js';
 import clientsRoutes from './routes/clientsRoutes.js';
+import contactRoutes from './routes/contactRoutes.js';
+import homeRoutes from './routes/homeRoutes.js';
 import projectsRoutes from './routes/projectsRoutes.js';
 
 const app = express();
