@@ -15,7 +15,7 @@ app.use(cookieParser());
 
 // CORS configuration
 const corsOptions = {
-  origin:"https://new--stupendous-starburst-33c928.netlify.app/",
+  origin:"https://new--stupendous-starburst-33c928.netlify.app/.netlify/contacts/submit",
   methods: 'GET, POST',
   credentials: true,
   optionsSuccessStatus: 204,
