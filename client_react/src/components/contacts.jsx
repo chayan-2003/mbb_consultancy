@@ -54,12 +54,12 @@ const Form = () => {
       setValidationMessages(updatedValidationMessages);
       return;
     }
-    console.log(process.env.SERVER_PROD_URL,"envserver");
-    const postContactsUrl = getUrl() + "/contacts/submit";
-    console.log(postContactsUrl,"contact_url");
+    // console.log(process.env.SERVER_PROD_URL,"envserver");
+    // const postContactsUrl = getUrl() + "/contacts/submit";
+    // console.log(postContactsUrl,"contact_url");
 
     try {
-      const response = await fetch(postContactsUrl, {
+      const response = await fetch("http://localhost:8800/contacts/submit", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
