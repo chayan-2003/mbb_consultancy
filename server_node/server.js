@@ -9,20 +9,28 @@ import contactRoutes from './routes/contactRoutes.js';
 const app = express();
 
 // middleware
+dotenv.config();
+app.use(express.json());
+app.use(cookieParser());
+
+// CORS configuration
 const corsOptions = {
-  origin: 'http://localhost:3000', // frontend URI (ReactJS)
+  origin: process.env.CLIENT_PROD_URL || "http://localhost:3000",
+  methods: 'GET, POST',
+  credentials: true,
+  optionsSuccessStatus: 204,
 };
 
-app.use(express.json());
 app.use(cors(corsOptions));
-app.use(cookieParser());
-dotenv.config();
 
 const PORT = process.env.PORT || 8800;
 
 const connect = async () => {
   try {
-    await mongoose.connect(process.env.MONGO);
+    await mongoose.connect(process.env.MONGO, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log('Connected to MongoDB');
   } catch (error) {
     throw error;
@@ -35,6 +43,7 @@ app.get('/', (_, res) => {
 
 app.listen(PORT, () => {
   connect();
+  console.log(`Server is running on port ${PORT}`);
 });
 
 // Routes
