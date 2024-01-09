@@ -54,15 +54,15 @@ const Form = () => {
       setValidationMessages(updatedValidationMessages);
       return;
     }
-    // console.log(process.env.SERVER_PROD_URL,"envserver");
-    // const postContactsUrl = getUrl() + "/contacts/submit";
-    // console.log(postContactsUrl,"contact_url");
+    console.log(process.env.SERVER_PROD_URL,"envserver");
+    const postContactsUrl = getUrl() + "/contacts/submit";
+    console.log(postContactsUrl,"contact_url");
 
     try {
-      const response = await fetch("https://mbb-consultancy-uk11.onrender.com/contacts/submit", {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
+        const response = await fetch("https://mbb-consultancy-uk11.onrender.com/contacts/submit", {
+        method: 'POST',
+        headers: {
+      'Content-Type': 'application/json',
   },
   body: JSON.stringify(formData),
   credentials: 'include', // include credentials (cookies) in the request
