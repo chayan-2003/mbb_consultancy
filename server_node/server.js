@@ -5,6 +5,10 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import contactRoutes from './routes/contactRoutes.js';
+import homeRoutes from './routes/homeRoutes.js';
+import aboutUsRoutes from './routes/aboutUsRoutes.js';
+import clientsRoutes from './routes/clientsRoutes.js';
+import projectsRoutes from './routes/projectsRoutes.js';
 
 const app = express();
 
@@ -33,6 +37,7 @@ const connect = async () => {
     });
     console.log('Connected to MongoDB');
   } catch (error) {
+    console.error('Error connecting to MongoDB:', error.message);
     throw error;
   }
 };
@@ -41,16 +46,32 @@ app.get('/', (_, res) => {
   res.status(201).json({ message: 'Connected to Backend!' });
 });
 
+// Routes
+app.use('/contacts', contactRoutes);
+app.use('/home', homeRoutes);
+app.use('/about-us', aboutUsRoutes);
+app.use('/clients', clientsRoutes);
+app.use('/projects', projectsRoutes);
+
+// Error handling middleware for all routes
+app.use((err, req, res, next) => {
+  console.error('Error:', err.message);
+
+  if (err.name === 'ValidationError') {
+    // Handle validation errors
+    return res.status(400).json({ error: err.message });
+  }
+
+  if (err.name === 'MongoError' && err.code === 11000) {
+    // Handle duplicate key error (MongoDB)
+    return res.status(400).json({ error: 'Duplicate key error' });
+  }
+
+  // Generic error handling
+  res.status(500).json({ error: 'Internal Server Error' });
+});
+
 app.listen(PORT, () => {
   connect();
   console.log(`Server is running on port ${PORT}`);
-});
-
-// Routes
-app.use('/contacts', contactRoutes);
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something went wrong!');
 });
