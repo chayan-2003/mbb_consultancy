@@ -59,7 +59,7 @@ const Form = () => {
     // console.log(postContactsUrl,"contact_url");
 
     try {
-        const response = await fetch("http://mbb-consultancy-uk11.onrender.com/contacts/submit", {
+        const response = await fetch("/.netlify/contacts/submit", {
         method: 'POST',
         headers: {
       'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ const Form = () => {
         // Display the form when it's not submitted
         <div className="w-full max-w-screen-md p-8">
           <h2 className="text-4xl font-bold mb-4 text-center">Contact Form</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} netlify>
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-medium text-gray-600 mb-2">
               Name<span className="text-red-800 text-lg">*</span>
