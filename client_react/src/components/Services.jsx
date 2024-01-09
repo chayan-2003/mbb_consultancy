@@ -10,7 +10,7 @@ export default function Services() {
           <div className="relative">
             <div className="group">
               <img
-                src="https://shradhalandsurveyors.com/blog/wp-content/uploads/2020/02/Engineering-Surveying.jpg"
+                src="client_images\Engineering-Surveying.jpg"
                 alt="Service 3"
                 className="h-60 sm:h-72 w-full md:w-96 object-cover mb-4 rounded-xl transition duration-300 transform group-hover:opacity-80 group-hover:border-4 group-hover:border-blue-500"
               />
@@ -24,7 +24,7 @@ export default function Services() {
           <div className="relative">
             <div className="group">
               <img
-                src="https://media.istockphoto.com/id/1460833922/photo/soil-testing-in-flower-plant-garden-with-digital-analyzer-or-tester.webp?b=1&s=170667a&w=0&k=20&c=mzbWUG4okiGDMTm4lQjP1L68ndH-h2b6B2jH8eoTTuI="
+                src="client_images\soil_testing.webp"
                 alt="Service 3"
                 className="h-60 sm:h-72 w-full md:w-96 object-cover mb-4 rounded-xl transition duration-300 transform group-hover:opacity-80 group-hover:border-4 group-hover:border-blue-500"
               />
@@ -38,7 +38,7 @@ export default function Services() {
           <div className="relative">
             <div className="group">
               <img
-                src="https://img.freepik.com/premium-photo/hands-architects-designers-pointing-blueprint-table-when-discussing-future-interior-design-project_274689-20802.jpg?size=626&ext=jpg"
+                src="client_images\planning_design.avif"
                 alt="Service 3"
                 className="h-60 sm:h-72 w-full md:w-96 object-cover mb-4 rounded-xl transition duration-300 transform group-hover:opacity-80 group-hover:border-4 group-hover:border-blue-500"
               />
@@ -52,7 +52,7 @@ export default function Services() {
           <div className="relative">
             <div className="group">
               <img
-                src="https://t4.ftcdn.net/jpg/02/34/47/79/360_F_234477993_zJvIuCuOQM8EkasYUCxoipmWjJnP8Kky.jpg"
+                src="client_images\railway_sidings.jpg"
                 alt="Service 4"
                 className="h-60 sm:h-72 w-full md:w-96 object-cover mb-4 rounded-xl transition duration-300 transform group-hover:opacity-80 group-hover:border-4 group-hover:border-blue-500"
               />
@@ -68,7 +68,7 @@ export default function Services() {
           <div className="relative">
             <div className="group">
               <img
-                src="https://images.unsplash.com/photo-1621866546767-0d689e8f7784?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJhaWx3YXklMjBicmlkZ2V8ZW58MHx8MHx8fDA%3D"
+                src="client_images\construction.avif"
                 alt="Service 5"
                 className="h-60 sm:h-72 w-full md:w-72 object-cover mb-4 rounded-xl transition duration-300 transform group-hover:opacity-80 group-hover:border-4 group-hover:border-blue-500"
               />
@@ -82,7 +82,7 @@ export default function Services() {
           <div className="relative">
             <div className="group">
               <img
-                src="https://images.unsplash.com/photo-1591588582259-e675bd2e6088?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvbnN0cnVjdGlvbnxlbnwwfHwwfHx8MA%3D%3D"
+                src="client_images\supervision.avif"
                 alt="Service 6"
                 className="h-60 sm:h-72 w-full md:w-72 object-cover mb-4 rounded-xl transition duration-300 transform group-hover:opacity-80 group-hover:border-4 group-hover:border-blue-500"
               />
