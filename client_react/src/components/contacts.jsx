@@ -59,7 +59,7 @@ const Form = () => {
     // console.log(postContactsUrl,"contact_url");
 
     try {
-        const response = await fetch("https://mbb_consultancy.netlify.app/contacts/submitForm", {
+        const response = await fetch("https://mbb_consultancy.netlify.app/contacts/submit", {
         method: 'POST',
         headers: {
       'Content-Type': 'application/json',
