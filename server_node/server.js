@@ -15,7 +15,7 @@ app.use(cookieParser());
 
 // CORS configuration
 const corsOptions = {
-  origin:"https://mbb_consultancy.netlify.app/contacts",
+  origin:"https://mbb-consultancy-uk11.onrender.com/contacts",
   methods: 'GET, POST',
   credentials: true,
   optionsSuccessStatus: 204,
