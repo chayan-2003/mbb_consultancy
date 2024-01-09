@@ -4,7 +4,7 @@ import Home from "./pages/home/home.jsx";
 import FormPage from "./pages/contacts/form.jsx";
 import AboutPage from "./pages/Aboutus/About_pg.jsx";
 import Client from "./pages/client_pg/client.jsx";
-import Works_pg  from "./pages/project_pg/Works_pg.jsx";
+import Works_pg from "./pages/project_pg/Works_pg.jsx";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ const HomeWithBackendData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8800/');
+        const response = await fetch(process.env.PROD_URL  || 'http://localhost:8800');
         const data = await response.json();
         setBackendData(data);
       } catch (error) {
@@ -46,7 +46,7 @@ const AboutPageWithBackendData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8800/about-us');
+        const response = await fetch(`${process.env.PROD_URL || 'http://localhost:8800'}/about-us`);
         const data = await response.json();
         setBackendData(data);
       } catch (error) {
@@ -66,7 +66,7 @@ const ClientWithBackendData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8800/clients');
+        const response = await fetch(`${process.env.PROD_URL || 'http://localhost:8800'}/clients`);
         const data = await response.json();
         setBackendData(data);
       } catch (error) {
@@ -86,7 +86,7 @@ const WorksPageWithBackendData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8800/projects');
+        const response = await fetch(`${process.env.PROD_URL || 'http://localhost:8800'}/projects`);
         const data = await response.json();
         setBackendData(data);
       } catch (error) {
@@ -96,7 +96,7 @@ const WorksPageWithBackendData = () => {
 
     fetchData();
   }, []);
- 
+
   return <Works_pg backendData={backendData} />;
 };
 
