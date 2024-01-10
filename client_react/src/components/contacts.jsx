@@ -59,7 +59,7 @@ const Form = () => {
     // console.log(postContactsUrl,"contact_url");
 
     try {
-        const response = await fetch("https://mbb-consultancy-uk11.onrender.com/contacts", {
+        const response = await fetch("https://mbb-consultancy-uk11.onrender.com/contacts/submit", {
         method: 'POST',
         headers: {
       'Content-Type': 'application/json',
