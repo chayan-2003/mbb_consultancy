@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import contactRoutes from './routes/contactRoutes.js';
+import { submitContactForm } from '../controllers/contactController.js';
 
 const app = express();
 
@@ -40,6 +41,7 @@ const connect = async () => {
 app.get('/', (_, res) => {
   res.status(200).json({ message: 'Connected to Backend!' });
 });
+
 app.post('/contacts/submit', (req, res) => {
   // Your handling for the contact form submission
   // ...
@@ -49,6 +51,8 @@ app.post('/contacts/submit', (req, res) => {
   res.header('Access-Control-Allow-Credentials', 'true');
   res.status(200).json({ message: 'Form submitted successfully!' });
 });
+
+app.post('/contacts/submit', submitContactForm);
 
 app.listen(PORT, () => {
   connect();
