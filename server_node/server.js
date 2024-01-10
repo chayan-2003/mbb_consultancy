@@ -40,6 +40,15 @@ const connect = async () => {
 app.get('/', (_, res) => {
   res.status(200).json({ message: 'Connected to Backend!' });
 });
+app.post('/contacts/submit', (req, res) => {
+  // Your handling for the contact form submission
+  // ...
+
+  // Send the appropriate CORS headers
+  res.header('Access-Control-Allow-Origin', 'https://stupendous-starburst-33c928.netlify.app');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.status(200).json({ message: 'Form submitted successfully!' });
+});
 
 app.listen(PORT, () => {
   connect();
