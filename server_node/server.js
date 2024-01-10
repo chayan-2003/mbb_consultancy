@@ -16,7 +16,7 @@ app.use(cookieParser());
 // CORS configuration
 const corsOptions = {
   origin:"https://new--stupendous-starburst-33c928.netlify.app",
-  methods: 'GET, POST',
+  methods: 'GET, POST, OPTIONS',
   credentials: 'include',
   optionsSuccessStatus: 204,
 };
@@ -38,7 +38,7 @@ const connect = async () => {
 };
 
 app.get('/', (_, res) => {
-  res.status(201).json({ message: 'Connected to Backend!' });
+  res.status(200).json({ message: 'Connected to Backend!' });
 });
 
 app.listen(PORT, () => {
