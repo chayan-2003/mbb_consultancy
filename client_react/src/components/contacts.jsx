@@ -28,6 +28,10 @@ const Form = () => {
       ...formData,
       [name]: value,
     });
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
     // Clear validation message when the user starts typing in the field
     setValidationMessages({
       ...validationMessages,
@@ -51,8 +55,11 @@ const Form = () => {
     });
 
     // If any mandatory field is empty, update state to display validation messages
-    if (!isValid) {
-      setValidationMessages(updatedValidationMessages);
+    if (!isValid || (formData.contact_number && formData.contact_number.length !== 10)) {
+      setValidationMessages({
+        ...updatedValidationMessages,
+        contact_number: 'Enter a 10 digit number',
+      });
       return;
     }
 
