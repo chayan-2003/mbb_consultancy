@@ -49,13 +49,14 @@ app.get('/', (_, res) => {
 //   // Send the appropriate CORS headers
 //   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
 //   res.header('Access-Control-Allow-Credentials', 'true');
-//   res.status(200).json({ message: 'Form submitted successfully!' });
+  // res.status(200).json({ message: 'Form submitted successfully!' });
 // });
 
 app.post('/contacts/submit', submitContactForm);
 app.use('/contacts', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'https://stupendous-starburst-33c928.netlify.app' || 'http://localhost:3000');
   res.header('Access-Control-Allow-Credentials', 'true');
+  res.status(200).json({ message: 'Form submitted successfully!' });
   next();
 });
 
