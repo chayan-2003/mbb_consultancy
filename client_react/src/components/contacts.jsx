@@ -71,7 +71,7 @@ const Form = () => {
         withCredentials: true, // include credentials (cookies) in the request
       });
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         console.log('Form submitted successfully');
         setIsFormSubmitted(true); // Set the form submission status to true
         // Optionally, you can perform actions after a successful submission
