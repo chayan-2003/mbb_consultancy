@@ -7,6 +7,7 @@ import Client from "./pages/client_pg/client.jsx";
 import Works_pg from "./pages/project_pg/Works_pg.jsx";
 
 function App() {
+  console.log(process.env.NODE_ENV);
   return (
     <BrowserRouter>
       <Routes>
