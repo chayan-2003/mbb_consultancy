@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Import Axios
 import { getUrl } from '../constant';
 
 const Form = () => {
@@ -27,6 +28,10 @@ const Form = () => {
       ...formData,
       [name]: value,
     });
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
     // Clear validation message when the user starts typing in the field
     setValidationMessages({
       ...validationMessages,
@@ -50,24 +55,23 @@ const Form = () => {
     });
 
     // If any mandatory field is empty, update state to display validation messages
-    if (!isValid) {
-      setValidationMessages(updatedValidationMessages);
+    if (!isValid || (formData.contact_number && formData.contact_number.length !== 10)) {
+      setValidationMessages({
+        ...updatedValidationMessages,
+        contact_number: 'Enter a 10 digit number',
+      });
       return;
     }
-    console.log(process.env.SERVER_PROD_URL,"envserver");
-    const postContactsUrl = getUrl() + "/contacts/submit";
-    console.log(postContactsUrl,"contact_url");
 
     try {
-      const response = await fetch(postContactsUrl, {
-        method: 'POST',
+      const response = await axios.post("https://mbb-consultancy-uk11.onrender.com/contacts/submit" || "http://localhost:8800/contacts/submit", formData, {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        withCredentials: true, // include credentials (cookies) in the request
       });
 
-      if (response.ok) {
+      if (response.status === 201) {
         console.log('Form submitted successfully');
         setIsFormSubmitted(true); // Set the form submission status to true
         // Optionally, you can perform actions after a successful submission
@@ -83,7 +87,7 @@ const Form = () => {
 
   const handleOkClick = () => {
     // Clear the form and reset state when the "OK" button is clicked
-    navigate("/")
+    navigate("/");
   };
 
   return (

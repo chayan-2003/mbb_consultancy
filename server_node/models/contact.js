@@ -14,10 +14,6 @@ const ContactSchema= new mongoose.Schema({
     required:true},
 
   desc:{type:String,
-      required:false},
-  
-
-
-         
+      required:false},     
 })
 export default  mongoose.model("Contact",ContactSchema) //phone number //company phone  number
