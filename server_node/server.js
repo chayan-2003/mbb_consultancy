@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 // CORS configuration
 const corsOptions = {
-  origin:"https://stupendous-starburst-33c928.netlify.app" || "http://localhost:3000",
+  origin:"https://mbbconsultancy.in" || "http://localhost:3000",
   methods: 'GET, POST, OPTIONS',
   credentials: true,
   optionsSuccessStatus: 204,
@@ -55,7 +55,7 @@ app.get('/', (_, res) => {
 app.post('/contacts/submit', submitContactForm);
 
 app.use('/contacts', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://stupendous-starburst-33c928.netlify.app' || 'http://localhost:3000');
+  res.header('Access-Control-Allow-Origin', 'https://mbbconsultancy.in' || 'http://localhost:3000');
   res.header('Access-Control-Allow-Credentials', 'true');
   res.status(201).json({ message: 'Form submitted successfully!' });
   next();
