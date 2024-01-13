@@ -64,7 +64,7 @@ const Form = () => {
     }
 
     try {
-      const response = await axios.post("https://mbb-consultancy-uk11.onrender.com/contacts/submit" || "http://localhost:8800/contacts/submit", formData, {
+      const response = await axios.post("https://mbb-consultancy.onrender.com/contacts/submit" || "http://localhost:8800/contacts/submit", formData, {
         headers: {
           'Content-Type': 'application/json',
         },
